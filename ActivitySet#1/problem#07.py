@@ -5,7 +5,10 @@ x = text.find(":")
 sliced = text[x+1:]
 
 sliced = sliced.strip()
+liced = float(sliced)
 
+
+print(sliced
 sliced = float(sliced)
 
 
