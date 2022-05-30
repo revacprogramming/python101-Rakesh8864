@@ -8,7 +8,7 @@ sliced = sliced.strip()
 liced = float(sliced)
 
 
-print(sliced
+print(sliced)
 sliced = float(sliced)
 
 
