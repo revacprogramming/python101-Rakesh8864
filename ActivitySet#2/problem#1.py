@@ -1,12 +1,14 @@
 
 
 def add(a, b):
-    return  # ...
+    sum=a+b
+    return sum 
 
 
 def main():
-    a = input  # ...
-    b = input  # ...
+    a = int(input("Enter 1st Number:"))
+    b = int(input("Enter 2nd Number:"))  
 
     c = add(a, b)
-    print  # ...
+    print("Sum of 1 and 2 is",c)  
+main()
