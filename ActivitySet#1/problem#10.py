@@ -1,17 +1,26 @@
-fname = input("Enter file name: ")
-if len(fname) < 1:
-    fname = "mbox-short.txt"
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
 
-fh = open(fname)
-count = 0
+email = dict()
 
-for line in fh :
-    line = line.strip()
-    line = line.split()
-    if 'From' in line:
+for line in handle :
+    if 'From:' in line:
+        line = line.strip()
+        line = line.split()
         for word in line:
             if '@' in word:
-                print(word)
-                count +=1
+                if word in email:
+                    email[word] = email[word] + 1
+                else:
+                    email[word] = 1
 
-print("There were", count, "lines in the file with From as the first word")
+largest = 0
+email_large = None
+
+for m in email :
+    if email[m] > largest:
+        largest = email[m]
+        email_large = m
+print(email_large, largest)

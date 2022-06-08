@@ -1,14 +1,16 @@
 
-
 def add(a, b):
-    sum=a+b
-    return sum 
+    s=a+b # ...\
+    return s
 
+def output(a, b, sum):
+    print(a,"+",b,"=",sum)
 
 def main():
-    a = int(input("Enter 1st Number:"))
-    b = int(input("Enter 2nd Number:"))  
+    a, b = map(int,input("input?").split())
+    sum = add(a, b)
+    output(a, b, sum)
 
-    c = add(a, b)
-    print("Sum of 1 and 2 is",c)  
-main()
+
+if __name__ == '__main__':
+    main()

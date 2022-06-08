@@ -1,26 +1,19 @@
-# Regular Expressions
-# https://www.py4e.com/lessons/regex
-name = input("Enter file:")
-if len(name) < 1 : name = "mbox-short.txt"
-handle = open(name)
+# Network Programming
+# https://www.py4e.com/lessons/network
+import socket
 
-counts = {}
-for line in handle:
-    word = line.split()
-    if len(word) < 3 or word[0] != "From" : continue
-    full_hour = word[5]
-    hour = full_hour.split(":")
-    hour = str(hour[:1])
-    hour = hour[2:4]
-    if hour in counts :
-        counts[hour] = 1 + counts[hour]
-    else :
-        counts.update({hour:1})
-lst = list()
-for k, v in counts.items():
-    new_tup = (k, v)
-    lst.append(new_tup)
- 
-lst = sorted(lst)    
-for k, v in lst:
-    print(k,v)
+# Creating Socket
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\
+
+# Requesting for scraping
+mysock.connect(('data.pr4e.org', 80))
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()
+mysock.send(cmd)
+
+# HTTP Header and the data is recieved
+while True:
+    data = mysock.recv(512)
+    if (len(data) < 1):
+        break
+    print(data.decode())
+mysock.close()

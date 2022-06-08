@@ -1,19 +1,20 @@
-# Network Programming
-# https://www.py4e.com/lessons/network
-import socket
+# Using Web Services
+# https://www.py4e.com/lessons/servces
 
-# Creating Socket
-mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\
+a = [1,2,3]
 
-# Requesting for scraping
-mysock.connect(('data.pr4e.org', 80))
-cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()
-mysock.send(cmd)
 
-# HTTP Header and the data is recieved
-while True:
-    data = mysock.recv(512)
-    if (len(data) < 1):
-        break
-    print(data.decode())
-mysock.close()
+for i in a:
+    h = [1,2,3]
+    h.remove(i)
+    print(h)
+
+print('\n\n')
+
+d = [1,2,3]
+
+
+for m in d:
+    l = d
+    l.remove(m)
+    print(l)

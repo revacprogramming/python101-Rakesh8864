@@ -1,23 +1,15 @@
-largest = None
-smallest = None
-while True:
-    num = input("Enter a number: ")
-    if num == "done":
-        break
-    try :
-        num = int(num)
-       
-        if largest == None :
-            largest = num
-        if smallest == None :
-            smallest = num
-           
-        if largest < num :
-            largest = num
-        elif smallest > num :
-            smallest = num
-    except :
-        print("Invalid input")
+text = "X-DSPAM-Confidence:    0.8475"
 
-print("Maximum is", largest)
-print("Minimum is",smallest)
+x = text.find(":")
+
+sliced = text[x+1:]
+
+sliced = sliced.strip()
+liced = float(sliced)
+
+
+print(sliced)
+sliced = float(sliced)
+
+
+print(sliced)

@@ -1,10 +1,12 @@
-# Conditional Execution
+def computepay(h, r):
+    if h <= 40:
+        pay = h * r
+    elif h > 40:
+        pay = r * 40 + ((h - 40) * r * 1.5)
+        return pay
 
-# Write a program to prompt the user for hours and rate per hour using input to compute gross pay. Pay the hourly rate for the hours up to 40 and 1.5 times the hourly rate for all hours worked above 40 hours. Use 45 hours and a rate of 10.50 per hour to test the program (the pay should be 498.75). You should use input to read a string and float() to convert the string to a number. Do not worry about error checking the user input - assume the user types numbers properly.
 
-hrs = float(input("Enter hours? "))
-rate = float(input("Enter rate:"))
-pay = hrs*rate
-if hrs>40:
-    pay = rate*40 + ((hrs-40)*rate*1.5)
-print(pay)  
+hrs = float(input("Enter Hours:"))
+rate = float(input("enter rate:"))
+p = computepay(hrs, rate)
+print("Pay", p)

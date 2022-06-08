@@ -1,3 +1,6 @@
-# Why Program
+# Variables, Expressions & Statements
 
-print("hello world")
+hrs = float(input("Enter hours? "))
+rate = float(input("Enter rate per hour"))
+pay = hrs*rate
+print("pay",pay)

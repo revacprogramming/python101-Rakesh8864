@@ -1,12 +1,23 @@
-def computepay(h, r):
-    if h <= 40:
-        pay = h * r
-    elif h > 40:
-        pay = r * 40 + ((h - 40) * r * 1.5)
-        return pay
+largest = None
+smallest = None
+while True:
+    num = input("Enter a number: ")
+    if num == "done":
+        break
+    try :
+        num = int(num)
+       
+        if largest == None :
+            largest = num
+        if smallest == None :
+            smallest = num
+           
+        if largest < num :
+            largest = num
+        elif smallest > num :
+            smallest = num
+    except :
+        print("Invalid input")
 
-
-hrs = float(input("Enter Hours:"))
-rate = float(input("enter rate:"))
-p = computepay(hrs, rate)
-print("Pay", p)
+print("Maximum is", largest)
+print("Minimum is",smallest)

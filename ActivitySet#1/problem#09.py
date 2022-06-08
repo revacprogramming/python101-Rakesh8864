@@ -1,15 +1,17 @@
-
 fname = input("Enter file name: ")
-fh = open(fname)
-lst = list()
-for line in fh:
-    line.rstrip()
-    t = line.split()
-    lst.append(t)
+if len(fname) < 1:
+    fname = "mbox-short.txt"
 
-lst1 = []
-for i in lst:
-    lst1 = lst1+ i
-lst1 = list(set(lst1))
-lst1.sort()        
-print(lst1)       
+fh = open(fname)
+count = 0
+
+for line in fh :
+    line = line.strip()
+    line = line.split()
+    if 'From' in line:
+        for word in line:
+            if '@' in word:
+                print(word)
+                count +=1
+
+print("There were", count, "lines in the file with From as the first word")
